@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/breakLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/break_layout_background"
+        android:elevation="@dimen/elevation"
+        app:layout_constraintBottom_toTopOf="@+id/workLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
+
+    <View
+        android:id="@+id/workLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breakLayout"
+        app:layout_constraintVertical_weight="1" />
+
+    <TextView
+        android:id="@+id/breakTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation"
+        android:text="@string/string_break"
+        android:textColor="@color/material_on_primary_emphasis_high_type"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:translationY="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/breakTimerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/breakLayout"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.cnux9.fliptimer.TimerView
+        android:id="@+id/breakTimerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation"
+        android:textColor="@color/material_on_primary_emphasis_high_type"
+        android:textSize="96dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/breakLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breakTextView"
+        app:minute="10" />
+
+    <TextView
+        android:id="@+id/workTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/work"
+        android:textColor="#2B2B2B"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:translationY="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/workTimerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/workLayout"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.cnux9.fliptimer.TimerView
+        android:id="@+id/workTimerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#444444"
+        android:textSize="96dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/workLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workTextView"
+        app:minute="60" />
+
+    <View
+        android:id="@+id/onWork"
+        android:layout_width="@dimen/mark_size"
+        android:layout_height="@dimen/mark_size"
+        android:layout_marginBottom="@dimen/indicator_margin"
+        android:background="@drawable/activation_mark"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/workTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/onBreak"
+        android:layout_width="@dimen/mark_size"
+        android:layout_height="@dimen/mark_size"
+        android:layout_marginBottom="@dimen/indicator_margin"
+        android:background="@drawable/activation_mark"
+        android:elevation="@dimen/elevation"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/breakTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="100dp"
+        android:text="← Swipe Timer →"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/breakLayout" />
+
+    <View
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/button_margin"
+        android:layout_marginBottom="@dimen/button_margin"
+        android:background="@drawable/start_button_background"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:text="@string/start"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workLayout" />
+
+    <!--    <View-->
+    <!--        android:id="@+id/textView2"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="@dimen/mark_size"-->
+    <!--        android:layout_marginStart="128dp"-->
+    <!--        android:layout_marginEnd="128dp"-->
+    <!--        android:background="@drawable/activation_mark"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/workTimerView" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
